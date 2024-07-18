@@ -105,13 +105,29 @@ class ViewController: UIViewController {
 //            ,buttonsView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: 20)
             ])
         
+        let height = 80
+        let width = 150
+        
+        for row in 0..<4 {
+            for col in 0..<5 {
+                let letterButton = UIButton(type: .system)
+                letterButton.titleLabel?.font = UIFont.systemFont(ofSize: 36)
+                letterButton.setTitle("WWW", for: .normal)
+                
+                let frame = CGRect(x: col * width, y: row * height, width: width, height: height)
+                letterButton.frame = frame
+                
+                buttonsView.addSubview(letterButton)
+                letterButtons.append(letterButton)
+            }
+        }
         
         //add some colors
         cluesLabel.textColor = .black
-        cluesLabel.backgroundColor = .red
-        answersLabel.textColor = .white
-        answersLabel.backgroundColor = .blue
-        buttonsView.backgroundColor = .green
+//        cluesLabel.backgroundColor = .red
+        answersLabel.textColor = .black
+//        answersLabel.backgroundColor = .blue
+//        buttonsView.backgroundColor = .green
         
     }
     
