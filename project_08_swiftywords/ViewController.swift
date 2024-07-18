@@ -34,20 +34,43 @@ class ViewController: UIViewController {
         
         answersLabel = UILabel()
         answersLabel.translatesAutoresizingMaskIntoConstraints = false
+        answersLabel.text = "answers "
         answersLabel.textAlignment = .right
         answersLabel.font = .systemFont(ofSize: 33)
         answersLabel.numberOfLines = 0
         view.addSubview(answersLabel)
         
-        
-        
+        currentAnswer = UITextField()
+        currentAnswer.translatesAutoresizingMaskIntoConstraints = false
+        currentAnswer.placeholder = "Tap the letters to guess"
+        currentAnswer.textAlignment = .center
+        currentAnswer.font = UIFont.systemFont(ofSize: 43 )
+        currentAnswer.isUserInteractionEnabled = false
+        view.addSubview(currentAnswer)
         
         NSLayoutConstraint.activate([
-            scoreLabel.topAnchor.constraint(equalTo:
-                view.layoutMarginsGuide.topAnchor)
-            ,scoreLabel.trailingAnchor.constraint(equalTo:
-                view.layoutMarginsGuide.trailingAnchor)
+            scoreLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor)
+            ,scoreLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
+            
+            ,cluesLabel.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor)
+            ,cluesLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor, constant: 100)
+            ,cluesLabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.6, constant: -100)
+            
+            ,answersLabel.topAnchor.constraint(equalTo: scoreLabel.bottomAnchor)
+            ,answersLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -100)
+            ,answersLabel.widthAnchor.constraint(equalTo: view.layoutMarginsGuide.widthAnchor, multiplier: 0.5, constant: -100)
+            ,answersLabel.heightAnchor.constraint(equalTo: cluesLabel.heightAnchor)
+            
+            ,currentAnswer.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            ,currentAnswer.centerYAnchor.constraint(equalTo: view.centerYAnchor)
             ])
+        
+        
+        //add some colors
+        cluesLabel.textColor = .black
+        cluesLabel.backgroundColor = .red
+        answersLabel.textColor = .white
+        answersLabel.backgroundColor = .blue
         
         
     }
